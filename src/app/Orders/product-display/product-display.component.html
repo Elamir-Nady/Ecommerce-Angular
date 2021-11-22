@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+       <div class="col-xs-4 item-photo">
+            <img style="max-width:100%;" [src]="product?.Img" />
+        </div>
+        <div class="col-xs-5" style="border:0px solid gray">
+
+            <h3>{{product?.Name}}</h3>    
+
+            <h6 class="title-price"><small> Quantity</small></h6>
+            <h4 style="margin-top:0px;">{{product?.Quantity}}</h4>
+
+            <h6 class="title-price"><small> Price</small></h6>
+            <h4 style="margin-top:0px;">{{product?.Price}}</h4>
+
+            
+            <div  >
+                <button [disabled]="productID==1" class="btn btn-primary col-4" (click)="prev()" >Prev</button>
+                <button [disabled]="islastproduct" class="btn btn-danger col-4 float-end"(click)="next()">Next</button>
+
+            </div>   
+
+            <div class="section" style="padding-bottom:20px;">
+                <h6><a><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;" (click)="goback()"></span>Go Back</a></h6>
+            </div>   
+         
+                                         
+        </div>                              
+
+</div>        
+</div>      

@@ -1,0 +1,39 @@
+<br>
+<h4>Date: {{today|date}}</h4>
+<h4>Date: {{natid |egyptianNationaIDl|date:'shortDate'}}</h4>
+  
+<div class="mb-3">
+    <label for="Enter Egyptian National ID " class="form-label"></label>
+<input type="text"
+    class="form-control" maxlength="14"  [(ngModel)]="natid" placeholder="Egyptian National ID">
+  </div>
+
+  <div class="mb-3">
+    <label for="Enter Credit Card " class="form-label"></label>
+    <input type="text" 
+     class="form-control" maxlength="19" [(ngModel)]="criditcard" value="{{criditcard|creditCard}}" placeholder="Credit Card">
+  </div>
+
+<select class="dropdown" name="" id="" [(ngModel)]="catid">
+  <option *ngFor="let item of Cateogry" [value]=item.ID>
+    {{item.Name}}
+  </option>
+</select>
+
+<div class="container-fluid">
+
+  <div class="float-start m-4" style="width: 20vw; " *ngFor="let p of storeData.services">
+    <div class="card" *ngIf="(catid==p?.CateogryID && p.Quantity>0)||(catid==0&& p.Quantity>0) " appProductshadow="gray" >
+      <img src="{{p.Img}}" class="card-img-top" style="width: 20vw; height: 42vh;">
+      <div class="card-body" >
+        <h5 class="card-title"> {{p.Name}} </h5>
+        <h6 class="card-title " > Quantity: {{p.Quantity}} </h6>
+        <p class="card-text">{{p.Price | currency :'EGP'}}</p>
+        <button href="#" class="btn btn-danger"  (click)="QuanDecrease(p.ID)">Buy</button>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

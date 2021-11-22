@@ -1,0 +1,90 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "Name": "product1",
+      "Quantity": 77,
+      "Price": 255,
+      "Img": "../../assets/images/headphone1.jpg",
+      "CateogryID": 1
+    },
+    {
+      "id": 2,
+      "Name": "product2",
+      "Quantity": 3,
+      "Price": 3000,
+      "Img": "../../assets/images/headphone2.jpg",
+      "CateogryID": 1
+    },
+    {
+      "id": 3,
+      "Name": "product3",
+      "Quantity": 1,
+      "Price": 5800,
+      "Img": "../../assets/images/headphone3.jpg",
+      "CateogryID": 1
+    },
+    {
+      "id": 4,
+      "Name": "product4",
+      "Quantity": 88,
+      "Price": 300,
+      "Img": "../../assets/images/printer1.jpg",
+      "CateogryID": 2
+    },
+    {
+      "id": 5,
+      "Name": "product5",
+      "Quantity": 500,
+      "Price": 100,
+      "Img": "../../assets/images/printer2.jpg",
+      "CateogryID": 2
+    },
+    {
+      "id": 6,
+      "Name": "product6",
+      "Quantity": 0,
+      "Price": 1000,
+      "Img": "../../assets/images/printer3.jpg",
+      "CateogryID": 2
+    },
+    {
+      "id": 7,
+      "Name": "product7",
+      "Quantity": 130,
+      "Price": 170,
+      "Img": "../../assets/images/printer2.jpg",
+      "CateogryID": 3
+    },
+    {
+      "id": 8,
+      "Name": "product8",
+      "Quantity": 112,
+      "Price": 90,
+      "Img": "../../assets/images/printer2.jpg",
+      "CateogryID": 3
+    },
+    {
+      "id": 9,
+      "CateogryID": "3",
+      "Name": "iphone 7+",
+      "Quantity": 12,
+      "Price": 55,
+      "Img": "1kl;"
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "Name": "Headphones"
+    },
+    {
+      "id": 2,
+      "Name": "Printes"
+    },
+    {
+      "id": 3,
+      "Name": "Mobiles"
+    }
+  ]
+}
