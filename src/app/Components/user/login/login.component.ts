@@ -29,15 +29,14 @@ export class LoginComponent implements OnInit {
 
   Login(){
 
-   
-      
     let username=  this.loginform.controls['username']?.value;
     let password= this.loginform.controls['password']?.value;
-    console.log(username);
  
    
     this.loginSevice.Login(username,password);
+
     this.islogin= this.loginSevice.LoginStatus();
+    
     username.value="";
     password.value="";
    

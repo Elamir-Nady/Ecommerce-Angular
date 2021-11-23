@@ -5,45 +5,46 @@ import { Observable, observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ScheduledAdsService {
-adsList:string[];
-  constructor() { 
+  adsList: string[];
+  constructor() {
 
-    this.adsList=["Big Sales Start Soon",
-                  "Wait For White Friday Offers",
-                  "Best Shopping in Decamber",
-                  "Big offers nex weak",
-                  "Wait For Black Friday Offers",
-                  "Sale Now",
+    this.adsList = ["Big Sales Start Soon",
+      "Wait For White Friday Offers",
+      "Best Shopping in Decamber",
+      "Big offers nex weak",
+      "Wait For Black Friday Offers",
+      "Sale Now",
 
-                  ]
+    ]
   }
 
 
-  ScheduledAds(){
-    let observ=new Observable<string>((observer)=>{
-      let counter=0;
-     let msgtime= setInterval(()=>{
+  ScheduledAds() {
+    let observ = new Observable<string>((observer) => {
+      let counter = 0;
+      let msgtime = setInterval(() => {
 
-        if(this.adsList[counter]==""){
+        if (this.adsList[counter] == "") {
           observer.error("Empty String");
         }
+
         observer.next(this.adsList[counter]);
 
-        if(this.adsList.length-1>counter){
+        if (this.adsList.length - 1 > counter) {
           counter++;
         }
-        else{
+        else {
           observer.complete();
         }
-      },1000);
+      }, 3000);
 
       return {
-        unsubscribe(){
+        unsubscribe() {
           clearInterval(msgtime);
         }
 
       }
-      
+
     });
 
     return observ;

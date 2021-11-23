@@ -7,18 +7,14 @@ import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { HomeComponent } from './Components/home/home.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProductComponent } from './Components/product/product.component';
 import { ProductshadowDirective } from './Directives/productshadow.directive';
 import { EgyptianNationaIDlPipe } from './Pipes/egyptian-nationa-idl.pipe';
 import { CreditCardPipe } from './Pipes/credit-card.pipe';
 import { OrderMasterComponent } from './Orders/order-master/order-master.component';
 import { OrderDetilesComponent } from './Orders/order-detiles/order-detiles.component';
-import { CartParentComponent } from './Cart/cart-parent/cart-parent.component';
 import { AboutComponent } from './Components/about/about.component';
 import { ContactComponent } from './Components/contact/contact.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
-import { ProductDetialsComponent } from './Cart/product-detials/product-detials.component';
-import { CartChildComponent } from './Cart/cart-parent/cart-child/cart-child.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDisplayComponent } from './Orders/product-display/product-display.component';
 import { InserProductComponent } from './Admin/inser-product/inser-product.component';
@@ -30,18 +26,14 @@ import { InserProductComponent } from './Admin/inser-product/inser-product.compo
     SidebarComponent,
     HomeComponent,
     FooterComponent,
-    ProductComponent,
     ProductshadowDirective,
     EgyptianNationaIDlPipe,
     CreditCardPipe,
     OrderMasterComponent,
     OrderDetilesComponent,
-    CartParentComponent,
-    CartChildComponent,
     AboutComponent,
     ContactComponent,
     NotFoundComponent,
-    ProductDetialsComponent,
     ProductDisplayComponent,
     InserProductComponent
   ],

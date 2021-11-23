@@ -8,9 +8,6 @@
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
         <form [formGroup]="loginform" (ngSubmit)="Login()">
 
-
-          <!-- Email input -->
-
           <div class="form-outline mb-4">
             <input type="text" formControlName="username" class="form-control form-control-lg"
               [class.is-valid]="loginform.controls['username'].valid"
@@ -21,25 +18,16 @@
 
           </div>
 
-          <!-- Password input -->
           <div class="form-outline mb-3">
             <input type="password" formControlName="password" class="form-control form-control-lg"
               [class.is-valid]="loginform.controls['password'].valid"
-              [class.is-invalid]="loginform.controls['password'].invalid  && loginform.controls['password'].touched" placeholder="Enter password" />
+              [class.is-invalid]="loginform.controls['password'].invalid  && loginform.controls['password'].touched"
+              placeholder="Enter password" />
             <br> <small [hidden]="loginform.controls['password'].valid || loginform.controls['password'].untouched"
               id="helpId" class="alert alert-danger">must at Least 4 char</small>
 
           </div>
-          <!-- 
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="checkbox"   value="" id="form2Example3" />
-              <label class="form-check-label" for="form2Example3">
-                Remember me
-              </label>
-            </div>
-            <a href="#!" class="text-body">Forgot password?</a>
-          </div> -->
+       
 
           <div class="text-center text-lg-start mt-4 pt-2">
             <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;"

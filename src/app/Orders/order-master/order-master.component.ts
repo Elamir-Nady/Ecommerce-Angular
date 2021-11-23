@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ICategory } from 'src/app/Interfaces/icategory';
 import { CategoryApiService } from 'src/app/Services/category-api.service';
+import { ProductsApiServiceService } from 'src/app/Services/products-api-service.service';
 import { ICategoryApi } from 'src/app/ViewModles/icategory-api';
 import { IshoppingCartItems } from 'src/app/ViewModles/ishopping-cart-items';
 import { OrderDetilesComponent } from '../order-detiles/order-detiles.component';
@@ -18,7 +18,9 @@ export class OrderMasterComponent  implements OnInit ,AfterViewInit {
   totalPric:number|null=null;
   @ViewChild('Selectitem') Selectitem!:ElementRef;
   @ViewChild(OrderDetilesComponent)CartChildobj!:OrderDetilesComponent;
-  constructor(private apiCategory:CategoryApiService) { 
+  constructor(private apiCategory:CategoryApiService,
+    private apiproductservice:ProductsApiServiceService
+    ) { 
     
   }
   ngOnInit(): void {
@@ -52,6 +54,23 @@ export class OrderMasterComponent  implements OnInit ,AfterViewInit {
     else if(selectedItem.SelectedQuantity!>0)
     this.shoppingCartItems.push(selectedItem);
   }
+
+
+
+// Buy(pid:number | undefined,pSelectedQuantity:number){
+//   let product;
+//   if(pid!=undefined)
+//   this.apiproductservice.getProductsByID(pid).subscribe(
+//     (respone)=>{
+//       product=respone;
+//       product.Quantity=product.Quantity-pSelectedQuantity;
+//       this.apiproductservice.editQuantaty(product).subscribe(
+//       )
+//     }
+//   )
+ 
+// }
+
 }
 
 

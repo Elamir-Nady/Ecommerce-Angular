@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { IProduct } from '../Interfaces/iproduct';
 import { IproductApi } from '../ViewModles/iproduct-api';
 
 @Injectable({
@@ -34,4 +33,16 @@ export class ProductsApiServiceService {
      }
     return this.http.post<IproductApi>(`${environment.ApiUrl}/products`,JSON.stringify(product),httpoptions)
    }
+
+   editQuantaty(prod:IproductApi):Observable<any>{
+    const httpoptions={
+      headers:new HttpHeaders({
+        'content-type':'application/JSON',
+       //  'Authorization':'AcessToken'
+      })
+    }
+     return this.http.patch(`${environment.ApiUrl}/products/${prod.id}`, JSON.stringify(prod),httpoptions)
+
+   }
+
 }

@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { filter, map, Subscription } from 'rxjs';
-import { ICategory } from 'src/app/Interfaces/icategory';
-import { IProduct } from 'src/app/Interfaces/iproduct';
-import { Storeinfo } from 'src/app/models/storeinfo';
+import { CategoryApiService } from 'src/app/Services/category-api.service';
+import { ProductsApiServiceService } from 'src/app/Services/products-api-service.service';
 import { ScheduledAdsService } from 'src/app/Services/scheduled-ads.service';
+import { ICategoryApi } from 'src/app/ViewModles/icategory-api';
+import { IproductApi } from 'src/app/ViewModles/iproduct-api';
 
 @Component({
   selector: 'app-home',
@@ -11,36 +12,38 @@ import { ScheduledAdsService } from 'src/app/Services/scheduled-ads.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit ,OnDestroy {
-  storeData:Storeinfo
   showlogo:boolean=true;
   IsPurshased:boolean=false;  
   Discountvalue:Number=30;
   catid:Number=0;
   clientName:string="";
 
-  ProductList:IProduct[];
-  Cateogry:ICategory[];
+  ProductList!:IproductApi[];
+  Cateogry!:ICategoryApi[];
+
   private subscribtion!:Subscription;
   private subscribtions!:Subscription[];
 
-  constructor( private schudalsAdsservice:ScheduledAdsService) { 
-    this.Cateogry=[{ID:1,Name:"Cateogry 1"},{ID:2,Name:"Cateogry 2"}];
+  constructor( private schudalsAdsservice:ScheduledAdsService,
+    private categoryservice:CategoryApiService,
+    private productsApi:ProductsApiServiceService
+    ) { 
 
-    this.ProductList=[
-    {ID:1,Name : "product1",Quantity: 77, Price : 255,Img: "https://fakeimg.pl/30x30/",CateogryID :1},
-    {ID:2,Name : "product2",Quantity: 3, Price : 3000,Img: "https://fakeimg.pl/30x30/",CateogryID :1},
-    {ID:3,Name : "product3",Quantity: 1, Price : 5800,Img: "https://fakeimg.pl/30x30/",CateogryID :1},
-    {ID:4,Name : "product4",Quantity: 88, Price : 300,Img: "https://fakeimg.pl/30x30/",CateogryID :2},
-    {ID:5,Name : "product5",Quantity: 500, Price : 100,Img: "https://fakeimg.pl/30x30/",CateogryID :2},
-    {ID:6,Name : "product6",Quantity: 0, Price : 1000,Img: "https://fakeimg.pl/30x30/",CateogryID :2},
-  ];
-
-  this.storeData=new Storeinfo("Sohag Store ","https://fakeimg.pl/250x100/",this.ProductList)
-
-
-  }
+    }
  
   ngOnInit(): void {
+
+    this.categoryservice.getAllCategory().subscribe(
+      (response)=>{
+        this.Cateogry=response;
+      }
+    );
+
+    this.productsApi.getAllProducts().subscribe(
+      (response)=>{
+        this.ProductList=response;
+      }
+      );
     const subscriber={
       next:(msg:string)=>{alert(msg);},
       error:(msg:string)=>{alert("Error "+msg)},
@@ -59,8 +62,8 @@ export class HomeComponent implements OnInit ,OnDestroy {
 
   ngOnDestroy(): void {
 
-    for(let sub of this.subscribtions)
-      sub.unsubscribe();
+    // for(let sub of this.subscribtions)
+    //   sub.unsubscribe();
     }
 
 
